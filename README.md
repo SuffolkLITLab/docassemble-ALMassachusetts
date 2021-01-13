@@ -4,5 +4,4 @@ A docassemble extension of the AssemblyLine project that provides a foundation o
 
 ## Author
 
-mb.restless.tech@gmail.com
-
+Suffolk Law School Legal Innovation and Technology Lab
