@@ -1,7 +1,6 @@
 ---
 modules:
   - docassemble.MACourts.macourts
-  - .massachusetts_specific_logic
 ---
 objects:
   - trial_court: MACourt
@@ -177,8 +176,6 @@ question: |
   What is ${ attorneys[i].possessive('BBO number') }?
 fields:
   - BBO: attorneys[i].id_number
-    required: True
-    validate: is_bbo_number
 auto terms:
   BBO number: |
     Board of Bar Overseers, a regulatory board that tracks lawyers. All Massachusetts lawyers will have this number.
