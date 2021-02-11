@@ -179,3 +179,8 @@ fields:
 auto terms:
   BBO number: |
     Board of Bar Overseers, a regulatory board that tracks lawyers. All Massachusetts lawyers will have this number.
+---
+comment: |
+  Sets an `bbo` to be the same as `id_number`
+code: |
+  attorney[i].bbo = attorney[i].id_number
