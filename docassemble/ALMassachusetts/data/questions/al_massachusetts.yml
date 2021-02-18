@@ -47,7 +47,7 @@ code: |
 ---
 if: |
   # this should only be reached if the user's address is out of state
-  not len(all_matches)
+  not len(all_matches) and all_courts.filter_courts(allowed_courts) 
 sets:
   - trial_court
 id: choose a court (no matching courts found)
@@ -122,7 +122,7 @@ content: |
   % endif
 ---
 if: |
-  len(all_matches)
+  len(all_matches) and all_courts.filter_courts(allowed_courts) 
 id: choose a court (courts matching provided address were found)
 question: |
   % if al_form_type == 'starts_case':
@@ -165,6 +165,51 @@ fields:
     object labeler: |
       lambda y: y.short_label()
     choices: all_courts.filter_courts(allowed_courts)    
+help: 
+  label: |
+    How do I pick a court?
+  content: |
+    ${ how_to_pick_court_help_template }
+---
+if:  not all_courts.filter_courts(allowed_courts) 
+id: Tell us about a court
+question: |
+  % if al_form_type == 'starts_case':
+  What court do you want to file in?
+  % elif al_form_type == 'appeal':
+  What is the name of the trial court your case was originally filed in?
+  % else:
+  What court is your case in?
+  % endif
+subquestion: |
+  % if not al_form_type == 'starts_case':
+  Look at your court paperwork. Match the name listed there.
+  % endif
+fields:
+  - Court name: trial_court.name
+    help: |
+      Full name. Like: Eastern Housing Court
+  - Court Department: trial_court.department    
+    required: False
+    help: |
+      E.g., Housing, District, Superior
+  - Division: trial_court.division
+    required: False
+    help: |
+      E.g., Eastern, Suffolk, East Boston
+  - Address: trial_court.address.address
+    address autocomplete: True
+    required: False
+  - Suite: trial_court.address.unit
+    required: False
+  - City: trial_court.address.city
+    required: False
+  - State: trial_court.address.state
+    default: "MA"
+    code: states_list()
+    required: False
+  - County: trial_court.address.county
+    required: False
 help: 
   label: |
     How do I pick a court?
