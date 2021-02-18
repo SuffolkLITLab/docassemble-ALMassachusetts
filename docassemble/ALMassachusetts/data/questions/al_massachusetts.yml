@@ -228,4 +228,4 @@ auto terms:
 comment: |
   Sets an `bbo` to be the same as `id_number`
 code: |
-  attorney[i].bbo = attorney[i].id_number
+  attorneys[i].bbo = attorneys[i].id_number
