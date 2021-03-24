@@ -67,14 +67,17 @@ subquestion: |
 fields:
   - no label: trial_court
     datatype: object
-    object labeler: |
-      lambda y: y.short_label()
+    object labeler: court_short_label
     choices: all_courts.filter_courts(allowed_courts)    
 help: 
   label: |
     How do I pick a court?
   content: |
     ${ how_to_pick_court_help_template }
+---
+code: |
+  def court_short_label(court):
+    return court.short_label()    
 ---
 template: how_to_pick_court_help_template
 content: |
@@ -149,8 +152,7 @@ fields:
     choices: all_matches
     none of the above: True
     disable others: True
-    object labeler: |
-      lambda y: y.short_description()
+    object labeler: court_short_description
     show if: 
       code: |
         len(all_matches)      
@@ -162,14 +164,18 @@ fields:
         len(all_matches)
   - no label: trial_court
     datatype: object
-    object labeler: |
-      lambda y: y.short_label()
+    object labeler: court_short_label
     choices: all_courts.filter_courts(allowed_courts)    
 help: 
   label: |
     How do I pick a court?
   content: |
     ${ how_to_pick_court_help_template }
+---
+code: |
+  def court_short_description(court):
+    return court.short_description()
+
 ---
 if:  not all_courts.filter_courts(allowed_courts) 
 id: Tell us about a court
