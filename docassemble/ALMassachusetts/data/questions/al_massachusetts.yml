@@ -82,7 +82,7 @@ code: |
 template: how_to_pick_court_help_template
 content: |
   For some cases, you can choose your court.
-  % if user_role=='plaintiff':    
+  % if al_form_type == 'starts_case':
   How do you know which court to choose?
 
   Massachusetts has 7 trial court departments:
