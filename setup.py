@@ -43,7 +43,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
     return out
 
 setup(name='docassemble.ALMassachusetts',
-      version='0.0.6',
+      version='0.0.7',
       description=('A docassemble extension of the AssemblyLine project that provides a foundation of Massachusetts-specific data, functionality, and questions.'),
       long_description='# docassemble.ALMassachusetts\r\n\r\nA docassemble extension of the AssemblyLine project that provides a foundation of Massachusetts-specific data, functionality, and questions.\r\n\r\n## Author\r\n\r\nSuffolk Law School Legal Innovation and Technology Lab\r\n',
       long_description_content_type='text/markdown',

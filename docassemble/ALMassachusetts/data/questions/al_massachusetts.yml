@@ -235,3 +235,9 @@ comment: |
   Sets an `bbo` to be the same as `id_number`
 code: |
   attorneys[i].bbo = attorneys[i].id_number
+---
+# You can override this addendum with a custom one
+generic object: ALDocument
+attachment:
+  variable name: x.addendum
+  docx template file: ma_basic_addendum.docx  
