@@ -10,6 +10,15 @@ objects from file:
   - court_emails : court_emails.yml
 ---
 code: |
+  AL_DEFAULT_COUNTRY = "US"
+---
+code: |
+  AL_DEFAULT_STATE = "MA"
+---
+code: |
+  AL_DEFAULT_LANGUAGE = "en"  
+---
+code: |
   # Sometimes we have values that can be set from interview_metadata.
   # They don't always work, but interview author can override.
   
