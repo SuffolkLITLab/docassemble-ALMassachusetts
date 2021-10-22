@@ -73,22 +73,21 @@ subquestion: |
   Look at your court paperwork. Match the name listed
   there.
   % endif
+  
+  ${ collapse_template(how_to_pick_court_help_template) }
 fields:
   - no label: trial_court
     datatype: object
     object labeler: court_short_label
     choices: all_courts.filter_courts(allowed_courts)    
-help: 
-  label: |
-    How do I pick a court?
-  content: |
-    ${ how_to_pick_court_help_template }
 ---
 code: |
   def court_short_label(court):
     return court.short_label()    
 ---
 template: how_to_pick_court_help_template
+subject: |
+  How do I pick a court?
 content: |
   For some cases, you can choose your court.
   % if al_form_type == 'starts_case':
@@ -155,6 +154,8 @@ subquestion: |
   
   ${map_of(combined_locations(all_matches))}
   % endif
+  
+  ${ collapse_template(how_to_pick_court_help_template) }  
 fields:
   - no label: trial_court
     datatype: object_radio
@@ -175,11 +176,6 @@ fields:
     datatype: object
     object labeler: court_short_label
     choices: all_courts.filter_courts(allowed_courts)    
-help: 
-  label: |
-    How do I pick a court?
-  content: |
-    ${ how_to_pick_court_help_template }
 ---
 code: |
   def court_short_description(court):
@@ -200,6 +196,8 @@ subquestion: |
   % if not al_form_type == 'starts_case':
   Look at your court paperwork. Match the name listed there.
   % endif
+  
+  ${ collapse_template(how_to_pick_court_help_template) }  
 fields:
   - Court name: trial_court.name
     help: |
@@ -225,11 +223,6 @@ fields:
     required: False
   - County: trial_court.address.county
     required: False
-help: 
-  label: |
-    How do I pick a court?
-  content: |
-    ${ how_to_pick_court_help_template }
 ---
 id: attorney bbo
 question: |
