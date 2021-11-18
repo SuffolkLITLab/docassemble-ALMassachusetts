@@ -1,6 +1,7 @@
 ---
 modules:
   - docassemble.MACourts.macourts
+  - collections.abc
 ---
 objects:
   - trial_court: MACourt
@@ -150,7 +151,12 @@ subquestion: |
 
   % if len(all_matches) > 0:
   Below is a map of the court(s) that serve
-  the address you gave us, ${comma_and_list([address.on_one_line() for address in addresses_to_search],comma_string='; ')}.
+  the address you gave us, 
+  % if isinstance(addresses_to_search, Iterable):
+  ${comma_and_list([address.on_one_line() for address in addresses_to_search],comma_string='; ')}.
+  % else:
+  ${addresses_to_search.on_one_line()}
+  % endif
   
   ${map_of(combined_locations(all_matches))}
   % endif
