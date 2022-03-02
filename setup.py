@@ -43,14 +43,14 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
     return out
 
 setup(name='docassemble.ALMassachusetts',
-      version='0.1.0',
+      version='0.1.1',
       description=('A docassemble extension of the AssemblyLine project that provides a foundation of Massachusetts-specific data, functionality, and questions.'),
       long_description='# docassemble.ALMassachusetts\r\n\r\nA docassemble extension of the AssemblyLine project that provides a foundation of Massachusetts-specific data, functionality, and questions.\r\n\r\n## Author\r\n\r\nSuffolk Law School Legal Innovation and Technology Lab\r\n',
       long_description_content_type='text/markdown',
       author='AssemblyLine Team',
-      author_email='ALTeam@example.com',
+      author_email='litlab@suffolk.org',
       license='The MIT License (MIT)',
-      url='https://docassemble.org',
+      url='https://suffolklitlab.org/docassemble-AssemblyLine-documentation/docs',
       packages=find_packages(),
       namespace_packages=['docassemble'],
       install_requires=['docassemble.MACourts>=0.0.58.2'],
