@@ -47,6 +47,10 @@ code: |
   # This is a placeholder for the addresses that will be searched
   # for matching address to court
   # TODO: is there a better default? Probably very case specific
+
+  # before adding all of the addresses to search, ensure they are
+  # defined. Otherwise, can get into an infinite loop
+  [user.address.address for user in users]
   addresses_to_search = [user.address for user in users]
 ---
 comment: |
