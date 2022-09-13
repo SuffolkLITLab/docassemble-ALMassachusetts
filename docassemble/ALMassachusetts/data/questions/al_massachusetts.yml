@@ -253,3 +253,33 @@ generic object: ALDocument
 attachment:
   variable name: x.addendum
   docx template file: ma_basic_addendum.docx  
+---
+id: docket number
+question: |
+  What is the docket number for your case?
+fields:
+  - I don't know the docket number: dont_know_docket_number
+    datatype: yesno    
+  - Docket number: docket_number
+    hide if: dont_know_docket_number
+validation code: |
+  # This should be safe to 
+  if dont_know_docket_number:
+    docket_number = ''      
+---
+question: |
+  Do you have a docket number for this case?
+fields:
+  - I have a docket number: docket_numbers.there_are_any
+    datatype: yesnoradio
+---
+id: docket numbers
+question: |
+  What is the docket number for this case?
+subquestion: |
+  If there are multiple docket numbers on this form, you can tap "${word("Add another")}"
+  to add more than one.
+list collect: True
+fields:
+  - Docket number: docket_numbers[i]
+    required: False
