@@ -1,6 +1,6 @@
 import os
 import sys
-from setuptools import setup, find_packages
+from setuptools import setup, find_namespace_packages
 from fnmatch import fnmatchcase
 from distutils.util import convert_path
 
@@ -51,8 +51,7 @@ setup(name='docassemble.ALMassachusetts',
       author_email='litlab@suffolk.org',
       license='The MIT License (MIT)',
       url='https://suffolklitlab.org/docassemble-AssemblyLine-documentation/docs',
-      packages=find_packages(),
-      namespace_packages=['docassemble'],
+      packages=find_namespace_packages(),
       install_requires=['docassemble.MACourts>=0.0.58.2'],
       zip_safe=False,
       package_data=find_package_data(where='docassemble/ALMassachusetts/', package='docassemble.ALMassachusetts'),
