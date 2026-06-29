@@ -1,0 +1,18 @@
+include:
+  - docassemble.EFSPIntegration:efiling_integration.yml
+---
+generic object: DAObject
+id: document type
+question: |
+  Should your ${ x.title } be impounded?
+subquestion: |
+  If a judge has ordered this case sealed, select
+  "Impounded".
+
+  If the judge hasn't ordered this case sealed, it should be public.
+fields:
+  - The judge has ordered this document to be: x.document_type
+    input type: radio
+    code: |
+      x.document_type_options
+    default: ${ matching_tuple_option('public', x.document_type_options) }
