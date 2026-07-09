@@ -1,6 +1,19 @@
 include:
   - docassemble.EFSPIntegration:efiling_integration.yml
 ---
+template: what_is_efile_template
+subject: |
+  What is eFileMA
+content: |
+  eFileMA is the Massachusetts Trial Court's official system for electronically
+  filing court documents. It is also called File and Serve.
+
+  This website can help you securely connect to eFileMA using your existing eFileMA
+  username and password, or to make a new account.
+
+  You can manage your account from the eFileMA website after we help you make it
+  here.
+---
 generic object: DAObject
 id: document type
 question: |
@@ -16,3 +29,4 @@ fields:
     code: |
       x.document_type_options
     default: ${ matching_tuple_option('public', x.document_type_options) }
+---
